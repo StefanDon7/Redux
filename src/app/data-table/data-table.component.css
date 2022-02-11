@@ -1,0 +1,25 @@
+.full-width-table {
+  width: 80%;
+  margin:20px auto;
+}
+.data-table{
+  width: 80%;
+  margin:20px auto;
+}
+.update-button{
+  background-color: palegreen;
+}
+.delete-button{
+  background-color: orangered;
+}
+.edit-button{
+  background-color: dodgerblue;
+}
+.edit-input-name{
+  width: auto;
+}
+.edit-input-price{
+  width: 60px;
+}
+
+

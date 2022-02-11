@@ -1,0 +1,29 @@
+<div class="mat-active">
+  <div class="form">
+    <form class="mat-form-field" [formGroup]="addProduct"
+         (ngSubmit)="actionButton()">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Product id</mat-label>
+        <input matInput formControlName="productID">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Product name</mat-label>
+        <input matInput formControlName="productName">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Product price</mat-label>
+        <input matInput formControlName="price">
+      </mat-form-field>
+      <div *ngIf="!updateForm">
+        <button mat-button color="primary" >Add product</button>
+      </div>
+      <div *ngIf="updateForm">
+        <button mat-button color="primary" >Update product</button>
+      </div>
+
+      </form>
+  </div>
+</div>
+

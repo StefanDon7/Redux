@@ -1,0 +1,126 @@
+<p-toast [style]="{marginTop: '30px'}"></p-toast>
+<p-table [paginator]="true"
+         [rowsPerPageOptions]="[10,25,50]"
+         [rows]="10"
+         [value]="products"
+         styleClass="p-datatable-striped">
+  <ng-template pTemplate="header">
+    <tr>
+      <th pSortableColumn="productID">
+        ID
+        <p-sortIcon field="productID"></p-sortIcon>
+      </th>
+      <th pSortableColumn="productName">
+        Name
+        <p-sortIcon field="productName"></p-sortIcon>
+      </th>
+      <th pSortableColumn="price">
+        Price
+        <p-sortIcon field="price"></p-sortIcon>
+      </th>
+      <th>
+        Action
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template let-product pTemplate="body">
+    <tr>
+      <td>{{product.productID}}</td>
+      <td>{{product.productName}}</td>
+      <td>{{product.price}}</td>
+      <td>
+        <p-splitButton (onClick)="deleteButton(product); selectProduct(product)" [model]="items" icon="pi pi-plus"
+                       label="Delete" styleClass="p-button-secondary mb-2"></p-splitButton>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+<h1>
+
+  NOVA TABELA
+</h1>
+
+
+<p-table [paginator]="true"
+         [rowsPerPageOptions]="[10,25,50]"
+         [rows]="10"
+         [value]="products"
+         dataKey="productID">
+
+  <ng-template pTemplate="header">
+    <tr class="departure-city-header">
+      <th style="width: 3rem"></th>
+      <th pSortableColumn="productID">
+        <p-sortIcon field="productID"></p-sortIcon>
+        ProductID
+      </th>
+      <th pSortableColumn="productName">
+        <p-sortIcon field="productName"></p-sortIcon>
+        Product Name
+      </th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </ng-template>
+
+  <ng-template let-product let-expanded="expanded" pTemplate="body">
+    <tr class="departure-unit-header">
+      <td>
+        <button [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'" [pRowToggler]="product" class="p-button-text p-button-rounded p-button-plain" pButton
+                pRipple
+                type="button"></button>
+      </td>
+      <td>{{product.productName}}</td>
+      <td>{{product.price}}</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="button-add">
+        <button (click)="action()"
+                class="cof-panel__fab_add"
+                mat-button
+                mat-mini-fab
+                style="margin-right: 10px;">
+          <mat-icon>add</mat-icon>
+        </button>
+      </td>
+    </tr>
+  </ng-template>
+
+  <ng-template let-products pTemplate="rowexpansion">
+    <tr>
+      <td colspan="8">
+        <p-table [value]="products.list" dataKey="supplierID">
+          <ng-template pTemplate="header">
+    <tr>
+      <th style="width: 50px">#</th>
+      <th>
+       ID
+      </th>
+      <th>
+        NAME
+      </th>
+      <th> </th>
+      <th></th>
+    </tr>
+  </ng-template>
+  <ng-template let-supplier let-i="rowIndex" pTemplate="body">
+    <tr>
+      <td>{{i + 1}}</td>
+      <td>{{supplier.supplierID}}</td>
+      <td>{{supplier.supplierName}}</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td class="no-data-available" colspan="6">
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
