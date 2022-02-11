@@ -108,8 +108,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     product.editable = !product.editable;
   }
 
-  selectProduct(product: Product): void {
-    this.selectedProduct = product;
+  selectProduct(productID: number): void {
+    this.selectedProduct.productID=productID;
   }
 
   action() {

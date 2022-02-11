@@ -29,7 +29,7 @@
       <td>{{product.productName}}</td>
       <td>{{product.price}}</td>
       <td>
-        <p-splitButton (onClick)="deleteButton(product); selectProduct(product)" [model]="items" icon="pi pi-plus"
+        <p-splitButton (onClick)="deleteButton(product)" (onDropdownClick)="selectProduct(product.productID)" [model]="items" icon="pi pi-plus"
                        label="Delete" styleClass="p-button-secondary mb-2"></p-splitButton>
       </td>
     </tr>
